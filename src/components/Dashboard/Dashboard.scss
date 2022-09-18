@@ -1,0 +1,10 @@
+.dashboard {
+  padding: 20px;
+
+  &__groups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+}
