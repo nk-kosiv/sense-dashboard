@@ -24,3 +24,6 @@ Launches the test runner in the interactive watch mode.
 
 # Important !
 If you serving with `npm start`, you will see duplicated `console.log` and requests as it executes code in two places, to avoid this you can run `npm run build` in root folder and than use live server to serve the production version.
+
+## App screenshot
+<img width="1503" alt="image" src="https://user-images.githubusercontent.com/38557835/190988292-ac2f8113-792b-4154-9c4f-d998851bd84a.png">
