@@ -4,6 +4,7 @@ import { ResponsePayload } from "../hooks/useFetchData";
 
 export const fetchData = ((): ((url: string) => Promise<ResponsePayload[]>) => {
   let lastUrlCache = {};
+  
   return async (url) => {
     if (!lastUrlCache[url as keyof typeof lastUrlCache]) {
       const response = await axios.get(url, {
