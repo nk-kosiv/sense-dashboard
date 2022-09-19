@@ -1,15 +1,17 @@
 import axios from "axios";
-import { AUTHENTICATION_TOKEN } from "../constants/fetchData";
 import { ResponsePayload } from "../hooks/useFetchData";
 
-export const fetchData = ((): ((url: string) => Promise<ResponsePayload[]>) => {
+export const fetchData = ((): ((
+  url: string,
+  token: string | undefined
+) => Promise<ResponsePayload[]>) => {
   let lastUrlCache = {};
-  
-  return async (url) => {
-    if (!lastUrlCache[url as keyof typeof lastUrlCache]) {
+
+  return async (url, token) => {
+    if (!lastUrlCache[url as keyof typeof lastUrlCache] && token) {
       const response = await axios.get(url, {
         headers: {
-          Authorization: `Bearer ${AUTHENTICATION_TOKEN}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 

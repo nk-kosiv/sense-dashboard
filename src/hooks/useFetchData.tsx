@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { SENSORS_URL } from "../constants/fetchData";
+import { SENSORS_URL, AUTHENTICATION_TOKEN } from "../constants/fetchData";
 import { fetchData } from "../utils/fetchData";
 
 export type ResponsePayload = {
@@ -16,7 +16,7 @@ export const useFetchData = () => {
 
   const getDataList = useCallback(async (): Promise<void> => {
     try {
-      const response = await fetchData(SENSORS_URL);
+      const response = await fetchData(SENSORS_URL, AUTHENTICATION_TOKEN);
 
       setData(response);
     } catch (e) {
