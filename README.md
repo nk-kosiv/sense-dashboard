@@ -21,3 +21,6 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.
+
+# Important !
+If you serving with `npm start`, you will see duplicated `console.log` and requests as it executes code in two places, to avoid this you can run `npm run build` in root folder and than use live server to serve the production version.
