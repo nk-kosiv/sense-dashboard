@@ -1,13 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { SENSORS_URL, AUTHENTICATION_TOKEN } from "../constants/fetchData";
+import { DeviceDataType } from "../types/dashboard";
 import { fetchData } from "../utils/fetchData";
 
-export type ResponsePayload = {
-  id: number;
-  name: string;
-  serialNumber: string;
-  status: string;
-  connectionStatus: string;
+export type ResponsePayload = DeviceDataType & {
   deviceType: string;
 };
 

@@ -6,7 +6,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DoNotDisturbIcon from "@mui/icons-material/DoNotDisturb";
 import { blue } from "@mui/material/colors";
 
-import { DeviceDataType } from "../../molecules";
+import { DeviceDataType, DeviceStatus } from "../../../../types/dashboard";
 
 export type DevicesProps = { device: DeviceDataType };
 
@@ -16,7 +16,7 @@ export const Device: React.FC<DevicesProps> = ({ device }) => {
     <ListItem divider>
       <ListItemAvatar>
         <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-          {status === "Failed" ? (
+          {status === DeviceStatus.Failed ? (
             <DoNotDisturbIcon color="error" />
           ) : (
             <CheckCircleIcon color="success" />

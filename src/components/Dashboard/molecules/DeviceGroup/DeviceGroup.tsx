@@ -6,15 +6,12 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+import {
+  ConnectionStatus,
+  DeviceDataType,
+  DeviceStatus,
+} from "../../../../types/dashboard";
 import { DeviceDialog } from "../DeviceDialog/DeviceDialog";
-
-export type DeviceDataType = {
-  id: number;
-  name: string;
-  serialNumber: string;
-  status: string;
-  connectionStatus: string;
-};
 
 export type DeviceGroupProps = {
   deviceType: string;
@@ -37,14 +34,14 @@ export const DeviceGroup: React.FC<DeviceGroupProps> = ({
   const totalNumberOfDevices = deviceData.length;
 
   const devicesOnline = deviceData.filter(
-    (device) => device.connectionStatus === "Online"
+    ({ connectionStatus }) => connectionStatus === ConnectionStatus.Online
   );
   const percentageOfDevicesOnline = Math.round(
     (devicesOnline.length / totalNumberOfDevices) * 100
   );
 
   const failedDevices = deviceData.filter(
-    (device) => device.status === "Failed"
+    ({ status }) => status === DeviceStatus.Failed
   );
   const percentageOfDevicesFailed = Math.round(
     (failedDevices.length / totalNumberOfDevices) * 100
